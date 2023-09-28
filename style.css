@@ -16,7 +16,7 @@ html {
 
 body {
   color: #131313;
-  font-family: "AkkuratMono-Regular";
+  font-family: 'AkkuratMono-Regular';
   overscroll-behavior: none;
 }
 
@@ -88,7 +88,7 @@ svg {
 }
 
 .typography p {
-  font-family: "Cardinal Fruit Medium";
+  font-family: 'Cardinal Fruit Medium';
   font-size: clamp(30px, 2vw, 45px);
   line-height: 100%;
 }
@@ -263,7 +263,7 @@ img:hover {
 }
 
 .lds-hourglass:after {
-  content: " ";
+  content: ' ';
   display: block;
   border-radius: 50%;
   width: 0;
@@ -296,7 +296,7 @@ img:hover {
 }
 
 .typography p::after {
-  content: "";
+  content: '';
   position: absolute;
   left: 0;
   bottom: 0;
@@ -328,12 +328,20 @@ img:hover {
 
 /* Images */
 
-.card img {
-  transition: all 500ms ease-out;
+.card {
+  transition: transform 500ms ease;
 }
 
-.card img:hover {
-  transform: scale(1.05);
+.card.active {
+  transform: scale(1.1);
+}
+
+.card.shrink-left {
+  transform: translateX(-5px) scale(0.9);
+}
+
+.card.shrink-right {
+  transform: translateX(5px) scale(0.9);
 }
 
 /* Hidden class */
