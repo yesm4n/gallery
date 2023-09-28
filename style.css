@@ -1,0 +1,343 @@
+@import url(https://db.onlinewebfonts.com/c/2ae387e9fd826eca2b02f780e91333c7?family=AkkuratMono-Regular);
+@import url(https://db.onlinewebfonts.com/c/742dcddc06afc2dfc1ecedd0a42adca0?family=Cardinal+Fruit+Italic);
+@import url(https://db.onlinewebfonts.com/c/2bfe809f5a433474ec388de3ccb69e73?family=Cardinal+Fruit+Medium);
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: #131313;
+  font-family: "AkkuratMono-Regular";
+  overscroll-behavior: none;
+}
+
+button {
+  color: #131313;
+}
+
+img,
+svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Main container */
+
+.container {
+  min-height: 100vh;
+  min-height: 100svh;
+  padding: 10px;
+  display: grid;
+  align-content: space-between;
+}
+
+/* Gallery SECTION */
+
+.gallery {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 2.6%;
+  gap: 10px;
+  overflow-x: auto;
+}
+
+.card {
+  grid-column: span 2 / auto;
+}
+
+.card-wide {
+  grid-column: span 3 / auto;
+}
+
+.gallery img {
+  height: 70%;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+/* Hide scrollbar */
+
+.gallery {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.gallery::-webkit-scrollbar {
+  display: none;
+}
+
+/* Typography SECTION */
+
+.typography {
+  /* max-width: max-content; */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+  bottom: 15%;
+}
+
+.typography p {
+  font-family: "Cardinal Fruit Medium";
+  font-size: clamp(30px, 2vw, 45px);
+  line-height: 100%;
+}
+
+.italic {
+  font-style: italic;
+  text-align: right;
+  margin-left: 20px;
+}
+
+/* Logo SECTION */
+
+.bottom-section {
+  display: flex;
+  justify-content: space-between;
+  gap: 4.375rem;
+  margin-bottom: 10px;
+}
+
+.view-gallery {
+  text-transform: uppercase;
+  text-decoration: underline;
+  margin-left: auto;
+}
+
+.brand {
+  width: 100%;
+}
+
+/* Full screen */
+
+.full-screen__typography {
+  text-transform: uppercase;
+  line-height: 100%;
+  font-size: 14px;
+}
+
+.full-screen {
+  padding: 10px;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.main-img {
+  background-color: hsl(0, 0%, 20%);
+  color: hsl(0, 0%, 100%);
+  object-fit: cover;
+  aspect-ratio: 1/1;
+  height: 100%;
+  width: 100%;
+}
+
+.side-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.side-screen__div {
+  width: 40%;
+}
+
+.side-screen__div img {
+  background-color: hsl(0, 0%, 20%);
+  color: hsl(0, 0%, 100%);
+  margin-bottom: 10px;
+  height: 100%;
+  width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+}
+
+.side-screen__text {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.side-screen__buttons {
+  display: flex;
+  gap: 10px;
+}
+
+/* Hover Effects */
+
+.view-gallery:hover {
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+img:hover {
+  cursor: pointer;
+}
+
+.brand:hover {
+  cursor: unset;
+}
+
+.side-screen__buttons button {
+  border: none;
+  text-transform: uppercase;
+  background-color: inherit;
+}
+
+.side-screen__buttons button:hover {
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+/* Tablet */
+
+@media (width < 900px) {
+  .gallery {
+    grid-auto-columns: 50px;
+    grid-auto-rows: 206px;
+  }
+
+  .full-screen {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .side-screen {
+    flex-direction: column-reverse;
+    justify-content: flex-end;
+    align-items: unset;
+    gap: 2rem;
+  }
+
+  .side-screen__div {
+    width: 50%;
+  }
+
+  .side-screen__text {
+    align-items: flex-start;
+    flex-direction: row-reverse;
+  }
+}
+
+/* Phone */
+
+@media (width < 600px) {
+  .container {
+    padding: 5px;
+  }
+
+  .bottom-section {
+    gap: unset;
+  }
+
+  .view-gallery {
+    margin: auto;
+  }
+}
+
+/* Animation */
+
+/* Spinner */
+
+.lds-hourglass {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80px;
+  height: 80px;
+}
+
+.lds-hourglass:after {
+  content: " ";
+  display: block;
+  border-radius: 50%;
+  width: 0;
+  height: 0;
+  margin: 8px;
+  box-sizing: border-box;
+  border: 32px solid #131313;
+  border-color: #131313 transparent #131313 transparent;
+  animation: lds-hourglass 1.2s infinite;
+}
+
+@keyframes lds-hourglass {
+  0% {
+    transform: rotate(0);
+    animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  }
+  50% {
+    transform: rotate(900deg);
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+  100% {
+    transform: rotate(1800deg);
+  }
+}
+
+/* Hover effect for text */
+
+.typography p {
+  position: relative;
+}
+
+.typography p::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 1px;
+  width: 100%;
+  background-color: hsl(0, 0%, 30%);
+  scale: 0 1;
+  transition: scale 300ms, translate 500ms;
+  transition-delay: 100ms;
+}
+
+.typography p:hover::after {
+  scale: 1 1;
+}
+
+.typography p:hover + li::after {
+  /* transition: translate(-100%); */
+  transition: translateY(-100%);
+}
+
+.typography p:has(+ :hover)::after {
+  /* transition: translate(100%); */
+  transition: translateY(100%);
+}
+
+.typography p:hover {
+  cursor: pointer;
+}
+
+/* Images */
+
+.card img {
+  transition: all 500ms ease-out;
+}
+
+.card img:hover {
+  transform: scale(1.05);
+}
+
+/* Hidden class */
+
+.hidden {
+  display: none;
+}
