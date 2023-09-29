@@ -79,7 +79,6 @@ svg {
 /* Typography SECTION */
 
 .typography {
-  /* max-width: max-content; */
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -249,7 +248,9 @@ img:hover {
   }
 }
 
+/*  */
 /* Animation */
+/*  */
 
 /* Spinner */
 
@@ -313,12 +314,10 @@ img:hover {
 }
 
 .typography p:hover + li::after {
-  /* transition: translate(-100%); */
   transition: translateY(-100%);
 }
 
 .typography p:has(+ :hover)::after {
-  /* transition: translate(100%); */
   transition: translateY(100%);
 }
 
@@ -329,19 +328,31 @@ img:hover {
 /* Images */
 
 .card {
-  transition: transform 500ms ease;
+  transition: transform 500ms ease-out 100ms;
 }
 
 .card.active {
-  transform: scale(1.1);
+  transform: scale(1.05);
+}
+
+.card:first-child.active {
+  transform: translate(7px) scale(1.05);
+}
+
+.card:last-child.active {
+  transform: translate(7px);
 }
 
 .card.shrink-left {
-  transform: translateX(-5px) scale(0.9);
+  transform: translateX(-7px) scale(0.9);
+  filter: blur(2px);
+  opacity: 0.85;
 }
 
 .card.shrink-right {
-  transform: translateX(5px) scale(0.9);
+  transform: translateX(7px) scale(0.9);
+  filter: blur(2px);
+  opacity: 0.85;
 }
 
 /* Hidden class */

@@ -7,9 +7,11 @@ const gallery = document.querySelector('.gallery');
 const date = document.querySelector('.date');
 const imagesLength = document.querySelector('.images-length');
 
+// Default state
 fullscreen.classList.add('hidden');
 container.classList.add('hidden');
 
+// Images index
 let index = 1;
 
 //
@@ -61,6 +63,21 @@ const year = String(newDate.getFullYear()).slice(-2);
 date.textContent = `(${month}'${year})`;
 imagesLength.textContent = `(${emptyArr.length})`;
 
+// Loading page
+const handleLoading = () => {
+  hourglass.classList.add('hidden');
+  container.classList.remove('hidden');
+};
+
+window.addEventListener('load', handleLoading);
+
+// Mouse wheel => horizontally
+const wheelFunc = e => {
+  gallery.scrollLeft += e.deltaY;
+};
+
+window.addEventListener('wheel', wheelFunc);
+
 //
 // FULL-SCREEN SECTION
 //
@@ -71,24 +88,23 @@ const sideImg = document.querySelector('.side-img');
 const prevButton = document.querySelector('.btn-prev');
 const nextButton = document.querySelector('.btn-next');
 
-// Fullscreen
+// Enter Fullscreen
 const handleFullscreenOn = () => {
   container.classList.add('hidden');
   fullscreen.classList.remove('hidden');
 };
 
-// Remove fullscreen
+viewGallery.addEventListener('click', handleFullscreenOn);
+
+// Remove Fullscreen
 const handleFullscreenOff = () => {
   container.classList.remove('hidden');
   fullscreen.classList.add('hidden');
 };
 
-// Loading
-const handleLoading = () => {
-  hourglass.classList.add('hidden');
-  container.classList.remove('hidden');
-};
+mainImg.addEventListener('click', handleFullscreenOff);
 
+// Images length
 const maxIndex = emptyArr.length;
 
 // Next button
@@ -103,6 +119,8 @@ const handleNextImages = () => {
   sideImg.setAttribute('src', `./images/${index + 1}.png`);
 };
 
+nextButton.addEventListener('click', handleNextImages);
+
 // Previous button
 const handlePrevImages = () => {
   if (index === 1) {
@@ -115,10 +133,7 @@ const handlePrevImages = () => {
   sideImg.setAttribute('src', `./images/${index + 1}.png`);
 };
 
-// Mouse wheel => horizontally
-const wheelFunc = e => {
-  gallery.scrollLeft += e.deltaY;
-};
+prevButton.addEventListener('click', handlePrevImages);
 
 // Keyboard events
 const handleKeypress = e => {
@@ -127,44 +142,39 @@ const handleKeypress = e => {
   if (e.key === 'Escape') handleFullscreenOff();
 };
 
-window.addEventListener('load', handleLoading);
-window.addEventListener('wheel', wheelFunc);
 document.addEventListener('keydown', handleKeypress);
 
-viewGallery.addEventListener('click', handleFullscreenOn);
-mainImg.addEventListener('click', handleFullscreenOff);
-prevButton.addEventListener('click', handlePrevImages);
-nextButton.addEventListener('click', handleNextImages);
+// Animations
+document.addEventListener('DOMContentLoaded', () => {
+  const cards = document.querySelectorAll('.card');
 
-const cards = document.querySelectorAll('.card');
+  cards.forEach(function (card) {
+    card.addEventListener('mouseenter', function () {
+      this.classList.add('active');
+      const prevCard = this.previousElementSibling;
+      const nextCard = this.nextElementSibling;
 
-cards.forEach(function (card) {
-  card.addEventListener('mouseenter', function () {
-    this.classList.add('active');
-    const prevCard = this.previousElementSibling;
-    const nextCard = this.nextElementSibling;
+      if (prevCard) {
+        prevCard.classList.add('shrink-left');
+      }
 
-    if (prevCard) {
-      prevCard.classList.add('shrink-left');
-    }
+      if (nextCard) {
+        nextCard.classList.add('shrink-right');
+      }
+    });
 
-    if (nextCard) {
-      nextCard.classList.add('shrink-right');
-    }
-  });
+    card.addEventListener('mouseleave', function () {
+      this.classList.remove('active');
+      const prevCard = this.previousElementSibling;
+      const nextCard = this.nextElementSibling;
 
-  card.addEventListener('mouseleave', function () {
-    this.classList.remove('active');
-    const prevCard = this.previousElementSibling;
-    const nextCard = this.nextElementSibling;
+      if (prevCard) {
+        prevCard.classList.remove('shrink-left');
+      }
 
-    if (prevCard) {
-      prevCard.classList.remove('shrink-left');
-    }
-
-    if (nextCard) {
-      nextCard.classList.remove('shrink-right');
-    }
+      if (nextCard) {
+        nextCard.classList.remove('shrink-right');
+      }
+    });
   });
 });
-//   });
