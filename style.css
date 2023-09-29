@@ -254,39 +254,28 @@ img:hover {
 
 /* Spinner */
 
-.lds-hourglass {
+.loader {
+  font-family: 'Cardinal Fruit Medium';
+  font-size: clamp(30px, 2vw, 45px);
+  line-height: 100%;
+  font-style: italic;
+  color: #131313;
+  animation: smokeOut 1s ease-in-out infinite alternate;
+  text-shadow: 0 0 1px white;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 80px;
-  height: 80px;
+}
+.loader:before {
+  content: 'Gallery';
 }
 
-.lds-hourglass:after {
-  content: ' ';
-  display: block;
-  border-radius: 50%;
-  width: 0;
-  height: 0;
-  margin: 8px;
-  box-sizing: border-box;
-  border: 32px solid #131313;
-  border-color: #131313 transparent #131313 transparent;
-  animation: lds-hourglass 1.2s infinite;
-}
-
-@keyframes lds-hourglass {
-  0% {
-    transform: rotate(0);
-    animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
-  }
-  50% {
-    transform: rotate(900deg);
-    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-  }
+@keyframes smokeOut {
   100% {
-    transform: rotate(1800deg);
+    opacity: 0.08;
+    filter: blur(5px);
+    letter-spacing: 4px;
   }
 }
 

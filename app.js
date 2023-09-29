@@ -1,6 +1,6 @@
 'use strict';
 
-const hourglass = document.querySelector('.lds-hourglass');
+const hourglass = document.querySelector('.loader');
 const container = document.querySelector('.container');
 const fullscreen = document.querySelector('.full-screen');
 const gallery = document.querySelector('.gallery');
