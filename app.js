@@ -31,6 +31,7 @@ function handleCreateImages() {
     if (wideDiv.includes(arr)) div.classList.add('card-wide');
 
     div.classList.add('card');
+    img.setAttribute('draggable', false);
     img.setAttribute('src', `./images/${arr}.png`);
     span.textContent = i < 9 ? '0' + (i + 1) : i + 1;
 

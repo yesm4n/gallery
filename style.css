@@ -84,6 +84,7 @@ svg {
   align-items: flex-start;
   position: relative;
   bottom: 15%;
+  user-select: none;
 }
 
 .typography p {
