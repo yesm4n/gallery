@@ -1,10 +1,9 @@
 # Gallery project
 
-This is a gallery project I have made in collaboration with Rron Berisha. My super friend & designer.
+This is a gallery project I --> https://www.linkedin.com/in/ylliramadani/ have made in collaboration with Rron Berisha --> https://www.behance.net/RronBerisha
 
 Functionality:
 Horizontal scrolling,
 Hover effects,
 Animations,
-Keyboard press <- esc ->
-Spinner and so on.
+Keyboard functionality and so on.
