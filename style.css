@@ -256,12 +256,12 @@ img:hover {
 
 .loader {
   font-family: 'Cardinal Fruit Medium';
-  font-size: clamp(30px, 2vw, 45px);
+  font-size: clamp(80px, 7vw, 100px);
   line-height: 100%;
   font-style: italic;
   color: #131313;
   animation: smokeOut 1s ease-in-out infinite alternate;
-  text-shadow: 0 0 1px white;
+  text-shadow: 0 0 1px black;
   position: absolute;
   top: 50%;
   left: 50%;
